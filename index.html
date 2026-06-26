@@ -337,7 +337,7 @@
     .indicadores-table th.th-col { width: 50px; }
   }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
 </head>
 <body>
 
@@ -784,11 +784,16 @@ async function exportarWord() {
   showToast('📄 Generando documento Word...');
 
   try {
+    if (!window.docx) {
+      showToast('❌ Librería no cargada, intenta recargar la página');
+      btn.disabled = false; btn.textContent = '📄 Exportar Word';
+      return;
+    }
     const {
       Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
       AlignmentType, BorderStyle, WidthType, ShadingType, VerticalAlign,
       PageOrientation, HeadingLevel
-    } = docx;
+    } = window.docx;
 
     const AZUL      = "1A3A5C";
     const AZUL_MED  = "2E6DA4";
