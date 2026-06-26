@@ -849,11 +849,12 @@ async function exportarWord() {
       children: [new TextRun({ text: txt, bold: true, size: 20, font: "Arial", color: BLANCO })]
     });
 
-    // A4 landscape: 16838 x 11906 DXA. Margins 720 each side.
-    // Usable width = 16838 - 720 - 720 = 15398 DXA
+    // docx.js landscape: pass SHORT edge as width, LONG edge as height — library swaps internally
+    // A4: short=11906, long=16838. Margins 720 each side.
+    // Usable width in landscape = long edge - left - right = 16838 - 720 - 720 = 15398 DXA
     const TOTAL_W = 15398;
-    const N_W = 700, COL_W = 1020;
-    const IND_W = TOTAL_W - N_W - COL_W * 6; // 8578
+    const N_W = 640, COL_W = 900;
+    const IND_W = TOTAL_W - N_W - COL_W * 6; // 15398 - 640 - 5400 = 9358
     const SCORE_COLS = ['S','L','ED','NL','N/O','N/A'];
 
     function buildDimTable(indicadores, dimId) {
@@ -1010,7 +1011,7 @@ async function exportarWord() {
       sections: [{
         properties: {
           page: {
-            size: { width: 16838, height: 11906, orientation: PageOrientation.LANDSCAPE },
+            size: { width: 11906, height: 16838, orientation: PageOrientation.LANDSCAPE },
             margin: { top: 720, right: 720, bottom: 720, left: 720 }
           }
         },
