@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pauta de Acompañamiento al Aula PIE 2025</title>
+<style>
+  :root {
+    --azul: #1a3a5c;
+    --azul-medio: #2e6da4;
+    --azul-claro: #ddeaf7;
+    --azul-suave: #eef4fb;
+    --verde: #217a4b;
+    --verde-claro: #e6f4ed;
+    --texto: #1a1a2e;
+    --gris: #6b7280;
+    --gris-borde: #cbd5e1;
+    --blanco: #ffffff;
+    --naranja: #c05c1a;
+    --rojo: #b91c1c;
+    --amarillo: #92400e;
+    --fondo: #f0f5fb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+    color: var(--blanco);
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(26,58,92,.25);
+  }
+  .logo-pie {
+    width: 54px; height: 54px;
+    background: rgba(255,255,255,.15);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -.01em; }
+  header p  { font-size: .82rem; opacity: .75; margin-top: 2px; }
+
+  /* ── MAIN CONTAINER ── */
+  main { max-width: 980px; margin: 32px auto; padding: 0 20px; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--blanco);
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(26,58,92,.08);
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--azul);
+    color: var(--blanco);
+    padding: 13px 22px;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-header .icon { font-size: 1.1rem; }
+  .card-body { padding: 22px 22px; }
+
+  /* ── IDENTIFICACIÓN GRID ── */
+  .id-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+  }
+  .field-group { display: flex; flex-direction: column; gap: 5px; }
+  .field-group label {
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .field-group input, .field-group select {
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: .9rem;
+    font-family: inherit;
+    color: var(--texto);
+    background: var(--blanco);
+    transition: border-color .2s, box-shadow .2s;
+    width: 100%;
+  }
+  .field-group input:focus, .field-group select:focus {
+    outline: none;
+    border-color: var(--azul-medio);
+    box-shadow: 0 0 0 3px rgba(46,109,164,.12);
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-label {
+    background: var(--azul-claro);
+    color: var(--azul);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border-bottom: 1px solid rgba(46,109,164,.15);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label span { font-size: 1rem; }
+
+  /* ── INDICADORES TABLE ── */
+  .indicadores-table { width: 100%; border-collapse: collapse; }
+  .indicadores-table thead tr {
+    background: var(--azul-suave);
+    border-bottom: 2px solid var(--azul-claro);
+  }
+  .indicadores-table th {
+    padding: 10px 10px;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--azul);
+    text-align: center;
+    letter-spacing: .03em;
+  }
+  .indicadores-table th.th-num { width: 42px; }
+  .indicadores-table th.th-ind { text-align: left; padding-left: 14px; }
+  .indicadores-table th.th-col { width: 64px; }
+
+  .indicadores-table tbody tr {
+    border-bottom: 1px solid #e8eff8;
+    transition: background .15s;
+  }
+  .indicadores-table tbody tr:hover { background: #f7faff; }
+  .indicadores-table tbody tr:last-child { border-bottom: none; }
+
+  .indicadores-table td {
+    padding: 11px 10px;
+    font-size: .86rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .indicadores-table td.td-num {
+    font-weight: 700;
+    color: var(--azul-medio);
+    font-size: .8rem;
+  }
+  .indicadores-table td.td-ind {
+    text-align: left;
+    padding-left: 14px;
+    color: var(--texto);
+    line-height: 1.45;
+  }
+
+  /* ── SCORE SELECT ── */
+  .score-select {
+    width: 58px;
+    padding: 6px 4px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 7px;
+    font-size: .85rem;
+    font-family: inherit;
+    text-align: center;
+    background: var(--blanco);
+    color: var(--texto);
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .score-select:focus {
+    outline: none;
+    border-color: var(--azul-medio);
+    box-shadow: 0 0 0 3px rgba(46,109,164,.12);
+  }
+  .score-select.has-value { border-color: var(--azul-medio); background: var(--azul-suave); font-weight: 700; color: var(--azul); }
+  .score-select.na-value { border-color: var(--gris-borde); background: #f5f5f5; color: var(--gris); }
+
+  /* ── PROMEDIO ROW ── */
+  .prom-row {
+    background: var(--azul-suave) !important;
+    border-top: 2px solid var(--azul-claro) !important;
+  }
+  .prom-row td { font-weight: 700; color: var(--azul); font-size: .85rem; padding: 12px 10px; }
+  .prom-badge {
+    display: inline-block;
+    background: var(--azul-medio);
+    color: var(--blanco);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: .9rem;
+    font-weight: 700;
+    min-width: 52px;
+    text-align: center;
+  }
+
+  /* ── RESUMEN ── */
+  .resumen-table { width: 100%; border-collapse: collapse; }
+  .resumen-table th, .resumen-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: .88rem;
+    border-bottom: 1px solid #e8eff8;
+  }
+  .resumen-table th {
+    background: var(--azul-suave);
+    font-weight: 700;
+    color: var(--azul);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .resumen-table td:last-child { text-align: center; }
+  .resumen-table tr:last-child td { border-bottom: none; }
+  .resumen-total {
+    background: var(--azul) !important;
+    color: var(--blanco) !important;
+    font-weight: 700;
+  }
+  .resumen-total td { color: var(--blanco) !important; border: none !important; }
+
+  .big-score {
+    display: inline-block;
+    background: var(--verde);
+    color: var(--blanco);
+    border-radius: 24px;
+    padding: 5px 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    min-width: 60px;
+    text-align: center;
+    transition: background .3s;
+  }
+  .big-score.bajo { background: var(--rojo); }
+  .big-score.medio { background: var(--naranja); }
+  .big-score.bueno { background: var(--amarillo); }
+  .big-score.alto  { background: var(--verde); }
+
+  /* ── OBSERVACIONES ── */
+  .obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .obs-group { display: flex; flex-direction: column; gap: 6px; }
+  .obs-group label {
+    font-size: .8rem; font-weight: 700; color: var(--azul);
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .obs-group textarea {
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: .88rem;
+    color: var(--texto);
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .obs-group textarea:focus {
+    outline: none;
+    border-color: var(--azul-medio);
+    box-shadow: 0 0 0 3px rgba(46,109,164,.12);
+  }
+
+  /* ── DEFINICIÓN CUALITATIVA ── */
+  .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .def-item {
+    background: var(--azul-suave);
+    border-left: 3px solid var(--azul-medio);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+  .def-item strong { color: var(--azul); display: block; margin-bottom: 2px; }
+
+  /* ── ACTIONS ── */
+  .actions {
+    display: flex; gap: 12px; justify-content: flex-end;
+    padding: 18px 22px;
+    border-top: 1px solid var(--azul-claro);
+    background: var(--azul-suave);
+  }
+  .btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    font-family: inherit;
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn-primary { background: var(--azul); color: var(--blanco); }
+  .btn-primary:hover { background: var(--azul-medio); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,58,92,.2); }
+  .btn-secondary { background: var(--blanco); color: var(--azul); border: 1.5px solid var(--azul); }
+  .btn-secondary:hover { background: var(--azul-suave); }
+  .btn-word { background: #1e5fa8; color: var(--blanco); }
+  .btn-word:hover { background: #174d8a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(30,95,168,.25); }
+  .btn-word:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .btn-danger { background: #fee2e2; color: var(--rojo); border: 1.5px solid #fca5a5; }
+  .btn-danger:hover { background: #fecaca; }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--verde);
+    color: var(--blanco);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: .88rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,.18);
+    transform: translateY(80px); opacity: 0;
+    transition: all .35s cubic-bezier(.34,1.56,.64,1);
+    z-index: 999;
+    pointer-events: none;
+  }
+  #toast.show { transform: translateY(0); opacity: 1; }
+
+  @media (max-width: 640px) {
+    header { padding: 18px 16px; }
+    main { padding: 0 10px; }
+    .id-grid, .obs-grid, .def-grid { grid-template-columns: 1fr; }
+    .score-select { width: 48px; font-size: .78rem; }
+    .indicadores-table th.th-col { width: 50px; }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo-pie">📋</div>
+  <div>
+    <h1>Pauta de Acompañamiento al Aula PIE</h1>
+    <p>Programa de Integración Escolar · 2025</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- IDENTIFICACIÓN -->
+  <div class="card">
+    <div class="card-header"><span class="icon">🏫</span> Identificación</div>
+    <div class="card-body">
+      <div class="id-grid">
+        <div class="field-group">
+          <label>Nombre de profesor(a) observado</label>
+          <input type="text" id="prof_observado" placeholder="Nombre completo">
+        </div>
+        <div class="field-group">
+          <label>Nombre de observador</label>
+          <input type="text" id="observador" placeholder="Nombre completo">
+        </div>
+        <div class="field-group">
+          <label>Curso</label>
+          <input type="text" id="curso" placeholder="Ej: 3° Básico A">
+        </div>
+        <div class="field-group">
+          <label>Asignatura</label>
+          <input type="text" id="asignatura" placeholder="Ej: Matemática">
+        </div>
+        <div class="field-group">
+          <label>Fecha y Horario</label>
+          <input type="text" id="fecha_horario" placeholder="DD/MM/AAAA · HH:MM">
+        </div>
+        <div class="field-group">
+          <label>Cantidad de estudiantes presentes</label>
+          <input type="number" id="total_estudiantes" placeholder="0" min="0">
+        </div>
+        <div class="field-group">
+          <label>Estudiantes PIE presentes</label>
+          <input type="number" id="estudiantes_pie" placeholder="0" min="0">
+        </div>
+        <div class="field-group">
+          <label>Implementación de co-docencia</label>
+          <select id="codocencia">
+            <option value="">Seleccionar...</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIMENSIÓN 1 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📚</span> 1. Sobre el Proceso Enseñanza Aprendizaje y Clima de Aula</div>
+    <div class="section-label"><span>📝</span> Indicadores de desempeño</div>
+    <table class="indicadores-table" id="tabla_d1">
+      <thead>
+        <tr>
+          <th class="th-num">N°</th>
+          <th class="th-ind">Indicadores</th>
+          <th class="th-col">S</th>
+          <th class="th-col">L</th>
+          <th class="th-col">ED</th>
+          <th class="th-col">NL</th>
+          <th class="th-col">N/O</th>
+          <th class="th-col">N/A</th>
+        </tr>
+      </thead>
+      <tbody id="body_d1"></tbody>
+    </table>
+    <div class="actions" style="padding:12px 22px;">
+      <span style="font-size:.82rem;color:var(--gris);font-style:italic;">Promedio Dimensión 1:</span>
+      <span class="prom-badge" id="prom_d1">—</span>
+    </div>
+  </div>
+
+  <!-- DIMENSIÓN 2 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📊</span> 2. Sobre la Evaluación</div>
+    <div class="section-label"><span>📝</span> Indicadores de desempeño</div>
+    <table class="indicadores-table" id="tabla_d2">
+      <thead>
+        <tr>
+          <th class="th-num">N°</th>
+          <th class="th-ind">Indicadores</th>
+          <th class="th-col">S</th>
+          <th class="th-col">L</th>
+          <th class="th-col">ED</th>
+          <th class="th-col">NL</th>
+          <th class="th-col">N/O</th>
+          <th class="th-col">N/A</th>
+        </tr>
+      </thead>
+      <tbody id="body_d2"></tbody>
+    </table>
+    <div class="actions" style="padding:12px 22px;">
+      <span style="font-size:.82rem;color:var(--gris);font-style:italic;">Promedio Dimensión 2:</span>
+      <span class="prom-badge" id="prom_d2">—</span>
+    </div>
+  </div>
+
+  <!-- DIMENSIÓN 3 -->
+  <div class="card">
+    <div class="card-header"><span class="icon">🏛️</span> 3. Aula de Recursos</div>
+    <div class="section-label"><span>📝</span> Indicadores de desempeño</div>
+    <table class="indicadores-table" id="tabla_d3">
+      <thead>
+        <tr>
+          <th class="th-num">N°</th>
+          <th class="th-ind">Indicadores</th>
+          <th class="th-col">S</th>
+          <th class="th-col">L</th>
+          <th class="th-col">ED</th>
+          <th class="th-col">NL</th>
+          <th class="th-col">N/O</th>
+          <th class="th-col">N/A</th>
+        </tr>
+      </thead>
+      <tbody id="body_d3"></tbody>
+    </table>
+    <div class="actions" style="padding:12px 22px;">
+      <span style="font-size:.82rem;color:var(--gris);font-style:italic;">Promedio Dimensión 3:</span>
+      <span class="prom-badge" id="prom_d3">—</span>
+    </div>
+  </div>
+
+  <!-- RESUMEN -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📈</span> Resumen General</div>
+    <div class="card-body" style="padding:0;">
+      <table class="resumen-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">N°</th>
+            <th>Dimensión</th>
+            <th style="width:120px;text-align:center;">Promedio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sobre el Proceso Enseñanza Aprendizaje y Clima de Aula</td>
+            <td><span class="prom-badge" id="res_d1">—</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Sobre la Evaluación</td>
+            <td><span class="prom-badge" id="res_d2">—</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Aula de Recursos</td>
+            <td><span class="prom-badge" id="res_d3">—</span></td>
+          </tr>
+          <tr class="resumen-total">
+            <td colspan="2" style="font-weight:700;font-size:.9rem;">PROMEDIO GENERAL</td>
+            <td style="text-align:center;"><span class="big-score" id="prom_general">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- OBSERVACIONES -->
+  <div class="card">
+    <div class="card-header"><span class="icon">💬</span> Observaciones Generales</div>
+    <div class="card-body">
+      <div class="obs-grid">
+        <div class="obs-group">
+          <label>✅ Fortalezas</label>
+          <textarea id="fortalezas" placeholder="Describa las fortalezas observadas..."></textarea>
+        </div>
+        <div class="obs-group">
+          <label>🎯 Márgenes de mejora</label>
+          <textarea id="mejoras" placeholder="Describa los aspectos a mejorar..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEFINICIÓN CUALITATIVA -->
+  <div class="card">
+    <div class="card-header"><span class="icon">📖</span> Definición Cualitativa</div>
+    <div class="card-body">
+      <div class="def-grid">
+        <div class="def-item">
+          <strong>S — Sobresaliente</strong>
+          Cumplimiento claro y consistente, sobresale con respecto a lo que se espera en el indicador evaluado.
+        </div>
+        <div class="def-item">
+          <strong>L — Logrado</strong>
+          Cumplimiento adecuado en el indicador evaluado.
+        </div>
+        <div class="def-item">
+          <strong>ED — En Desarrollo</strong>
+          Cumple con lo esperado en el indicador evaluado, pero con cierta irregularidad (ocasionalmente).
+        </div>
+        <div class="def-item">
+          <strong>NL — No Logrado</strong>
+          El cumplimiento presenta claras debilidades en el indicador evaluado.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTONES -->
+  <div class="card">
+    <div class="actions">
+      <button class="btn btn-danger" onclick="limpiarFormulario()">🗑️ Limpiar</button>
+      <button class="btn btn-word" onclick="exportarWord()" id="btn-word">📄 Exportar Word</button>
+      <button class="btn btn-primary" onclick="guardarFormulario()">💾 Guardar</button>
+    </div>
+  </div>
+
+</main>
+
+<div id="toast">✓ Guardado correctamente</div>
+
+<script>
+// ── DATOS ─────────────────────────────────────────────────────────────────────
+const COLS = ['S','L','ED','NL','N/O','N/A'];
+const COLS_VALS = { 'S':4, 'L':3, 'ED':2, 'NL':1, 'N/O':null, 'N/A':null };
+
+const D1 = [
+  "El o la docente se dirige a los y las estudiantes haciendo uso de un lenguaje adecuado a su rol.",
+  "El o la docente participa activamente de la clase en conjunto con el docente de aula.",
+  "Explica instrucciones o contenidos diversificados para los estudiantes.",
+  "El o la docente facilita el uso de material adaptado o recursos visuales.",
+  "El o la docente acompaña y guía a estudiantes en el desarrollo de la tarea sin reemplazar su autonomía.",
+  "Promueve que los estudiantes respondan o participen en actividades.",
+  "El o la docente comunica con claridad los objetivos de aprendizaje y comprueba que los estudiantes las comprenden.",
+  "El o la docente promueve flexibilidad en las formas de participación de los estudiantes y capacidad de sus respuestas.",
+  "Interviene de manera coordinada y no interrumpe el flujo de la clase.",
+  "Media en situaciones de conflicto o desregulación emocional."
+];
+
+const D2 = [
+  "El o la docente presenta distintas formas de evaluar el aprendizaje acorde a las NEE de los/las estudiantes."
+];
+
+const D3 = [
+  "El o la profesional se dirige a él y/o los estudiantes haciendo uso de un lenguaje adecuado a su rol.",
+  "Explica instrucciones o contenidos diversificados para los estudiantes y comprueba que los comprenden.",
+  "El o la profesional facilita el uso de material adaptado o recurso interactivo.",
+  "El o la profesional acompaña y guía a estudiantes en el desarrollo de la tarea sin reemplazar su autonomía.",
+  "Promueve que los estudiantes respondan o participen en actividades.",
+  "El o la profesional promueve flexibilidad en las formas de participación de los estudiantes y capacidad de sus respuestas.",
+  "El o la profesional no interrumpe el flujo de la actividad.",
+  "Media en situaciones de conflicto o desregulación emocional (cambio de actividad)."
+];
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderDimension(indicadores, bodyId, dimId) {
+  const tbody = document.getElementById(bodyId);
+  tbody.innerHTML = '';
+  indicadores.forEach((texto, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="td-num">${i + 1}</td>
+      <td class="td-ind">${texto}</td>
+      ${COLS.map(col => `
+        <td>
+          <select class="score-select" data-dim="${dimId}" data-row="${i}" data-col="${col}" onchange="onSelectChange(this)">
+            <option value="">—</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </td>
+      `).join('')}
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ── SCORE CHANGE ──────────────────────────────────────────────────────────────
+function onSelectChange(sel) {
+  // Style
+  if (!sel.value) {
+    sel.classList.remove('has-value','na-value');
+  } else {
+    sel.classList.add('has-value');
+    sel.classList.remove('na-value');
+  }
+  // Deselect other cols in same row (radio-like per row)
+  const dim = sel.dataset.dim;
+  const row = sel.dataset.row;
+  // No radio behavior needed — allow multiple? Actually form allows one col per row
+  // Let's allow free selection, just recalc
+  recalcAll();
+}
+
+// ── CALC ──────────────────────────────────────────────────────────────────────
+function getPromedioDim(dimId, count) {
+  let suma = 0, total = 0;
+  for (let i = 0; i < count; i++) {
+    // find selected value in this row
+    const sels = document.querySelectorAll(`select[data-dim="${dimId}"][data-row="${i}"]`);
+    let rowVal = null;
+    sels.forEach(s => {
+      if (s.value !== '') {
+        const col = s.dataset.col;
+        if (col !== 'N/O' && col !== 'N/A') {
+          rowVal = parseInt(s.value);
+        }
+      }
+    });
+    if (rowVal !== null) { suma += rowVal; total++; }
+  }
+  return total > 0 ? (suma / total) : null;
+}
+
+function recalcAll() {
+  const p1 = getPromedioDim('d1', D1.length);
+  const p2 = getPromedioDim('d2', D2.length);
+  const p3 = getPromedioDim('d3', D3.length);
+
+  const fmt = v => v !== null ? v.toFixed(2) : '—';
+
+  document.getElementById('prom_d1').textContent = fmt(p1);
+  document.getElementById('prom_d2').textContent = fmt(p2);
+  document.getElementById('prom_d3').textContent = fmt(p3);
+  document.getElementById('res_d1').textContent  = fmt(p1);
+  document.getElementById('res_d2').textContent  = fmt(p2);
+  document.getElementById('res_d3').textContent  = fmt(p3);
+
+  const vals = [p1, p2, p3].filter(v => v !== null);
+  const general = vals.length > 0 ? vals.reduce((a,b) => a+b, 0) / vals.length : null;
+  const gEl = document.getElementById('prom_general');
+  gEl.textContent = general !== null ? general.toFixed(2) : '—';
+
+  // Color coding for general
+  gEl.className = 'big-score';
+  if (general !== null) {
+    if (general < 2)      gEl.classList.add('bajo');
+    else if (general < 3) gEl.classList.add('medio');
+    else if (general < 3.5) gEl.classList.add('bueno');
+    else                  gEl.classList.add('alto');
+  }
+}
+
+// ── GUARDAR / CARGAR ──────────────────────────────────────────────────────────
+function guardarFormulario() {
+  const data = {
+    id: {
+      prof_observado: document.getElementById('prof_observado').value,
+      observador:     document.getElementById('observador').value,
+      curso:          document.getElementById('curso').value,
+      asignatura:     document.getElementById('asignatura').value,
+      fecha_horario:  document.getElementById('fecha_horario').value,
+      total_estudiantes: document.getElementById('total_estudiantes').value,
+      estudiantes_pie: document.getElementById('estudiantes_pie').value,
+      codocencia:     document.getElementById('codocencia').value,
+    },
+    scores: {},
+    obs: {
+      fortalezas: document.getElementById('fortalezas').value,
+      mejoras:    document.getElementById('mejoras').value,
+    }
+  };
+  document.querySelectorAll('.score-select').forEach(s => {
+    const key = `${s.dataset.dim}_${s.dataset.row}_${s.dataset.col}`;
+    data.scores[key] = s.value;
+  });
+  localStorage.setItem('pauta_pie_2025', JSON.stringify(data));
+  showToast('💾 Guardado correctamente');
+}
+
+function cargarFormulario() {
+  const raw = localStorage.getItem('pauta_pie_2025');
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    if (data.id) {
+      Object.entries(data.id).forEach(([k,v]) => {
+        const el = document.getElementById(k);
+        if (el) el.value = v;
+      });
+    }
+    if (data.scores) {
+      Object.entries(data.scores).forEach(([key, val]) => {
+        const [dim, row, col] = key.split('_');
+        const sel = document.querySelector(`select[data-dim="${dim}"][data-row="${row}"][data-col="${col}"]`);
+        if (sel && val) {
+          sel.value = val;
+          sel.classList.add('has-value');
+        }
+      });
+    }
+    if (data.obs) {
+      document.getElementById('fortalezas').value = data.obs.fortalezas || '';
+      document.getElementById('mejoras').value    = data.obs.mejoras    || '';
+    }
+    recalcAll();
+  } catch(e) { console.warn('Error cargando datos', e); }
+}
+
+function limpiarFormulario() {
+  if (!confirm('¿Limpiar todos los datos ingresados?')) return;
+  localStorage.removeItem('pauta_pie_2025');
+  document.querySelectorAll('input, select, textarea').forEach(el => { el.value = ''; });
+  document.querySelectorAll('.score-select').forEach(s => s.classList.remove('has-value','na-value'));
+  recalcAll();
+  showToast('🗑️ Formulario limpiado');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── HELPERS WORD ──────────────────────────────────────────────────────────────
+function getScoreLabel(dimId, rowIdx) {
+  const sels = document.querySelectorAll(`select[data-dim="${dimId}"][data-row="${rowIdx}"]`);
+  for (const s of sels) {
+    if (s.value !== '') return `${s.dataset.col}: ${s.value}`;
+  }
+  return '—';
+}
+
+function getScoresByRow(dimId, rowIdx) {
+  // Returns object col->value
+  const result = {};
+  const sels = document.querySelectorAll(`select[data-dim="${dimId}"][data-row="${rowIdx}"]`);
+  sels.forEach(s => { result[s.dataset.col] = s.value || ''; });
+  return result;
+}
+
+// ── EXPORT WORD ───────────────────────────────────────────────────────────────
+async function exportarWord() {
+  const btn = document.getElementById('btn-word');
+  btn.disabled = true;
+  btn.textContent = '⏳ Generando...';
+  showToast('📄 Generando documento Word...');
+
+  try {
+    const {
+      Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
+      AlignmentType, BorderStyle, WidthType, ShadingType, VerticalAlign,
+      PageOrientation, HeadingLevel
+    } = docx;
+
+    const AZUL      = "1A3A5C";
+    const AZUL_MED  = "2E6DA4";
+    const AZUL_CL   = "DCE6F1";
+    const AZUL_SUV  = "EEF4FB";
+    const BLANCO    = "FFFFFF";
+    const GRIS_BD   = "CBD5E1";
+
+    const borde = (color = GRIS_BD) => {
+      const s = { style: BorderStyle.SINGLE, size: 4, color };
+      return { top: s, bottom: s, left: s, right: s };
+    };
+
+    const cellOpts = (children, bg, width, center = false, bold = false) => new TableCell({
+      borders: borde(AZUL_MED),
+      width: { size: width, type: WidthType.DXA },
+      shading: { fill: bg, type: ShadingType.CLEAR },
+      margins: { top: 80, bottom: 80, left: 100, right: 100 },
+      verticalAlign: VerticalAlign.CENTER,
+      children: children.map(txt => new Paragraph({
+        alignment: center ? AlignmentType.CENTER : AlignmentType.LEFT,
+        children: [new TextRun({ text: String(txt), bold, size: 17, font: "Arial", color: bg === AZUL ? BLANCO : "000000" })]
+      }))
+    });
+
+    const hdrCell = (txt, w) => new TableCell({
+      borders: borde(AZUL),
+      width: { size: w, type: WidthType.DXA },
+      shading: { fill: AZUL, type: ShadingType.CLEAR },
+      margins: { top: 80, bottom: 80, left: 100, right: 100 },
+      verticalAlign: VerticalAlign.CENTER,
+      children: [new Paragraph({
+        alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: txt, bold: true, size: 17, font: "Arial", color: BLANCO })]
+      })]
+    });
+
+    const scoreCell = (val, w) => new TableCell({
+      borders: borde(AZUL_MED),
+      width: { size: w, type: WidthType.DXA },
+      shading: { fill: val ? AZUL_SUV : BLANCO, type: ShadingType.CLEAR },
+      margins: { top: 60, bottom: 60, left: 60, right: 60 },
+      verticalAlign: VerticalAlign.CENTER,
+      children: [new Paragraph({
+        alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: val || '', bold: !!val, size: 17, font: "Arial", color: val ? AZUL : "999999" })]
+      })]
+    });
+
+    const sectionTitle = (txt) => new Paragraph({
+      spacing: { before: 300, after: 100 },
+      shading: { fill: AZUL_MED, type: ShadingType.CLEAR },
+      children: [new TextRun({ text: txt, bold: true, size: 20, font: "Arial", color: BLANCO })]
+    });
+
+    const TOTAL_W = 12240;
+    const N_W = 600, IND_W = 5640, COL_W = 650;
+    // 6 cols: N + Indicador + S + L + ED + NL + N/O + N/A
+    const SCORE_COLS = ['S','L','ED','NL','N/O','N/A'];
+
+    function buildDimTable(indicadores, dimId) {
+      const colWidths = [N_W, IND_W, COL_W, COL_W, COL_W, COL_W, COL_W, COL_W];
+      const hdrRow = new TableRow({
+        tableHeader: true,
+        children: [
+          hdrCell('N°', N_W),
+          hdrCell('Indicadores', IND_W),
+          ...SCORE_COLS.map(c => hdrCell(c, COL_W))
+        ]
+      });
+
+      const dataRows = indicadores.map((texto, i) => {
+        const scores = getScoresByRow(dimId, i);
+        return new TableRow({
+          children: [
+            cellOpts([String(i+1)], AZUL_SUV, N_W, true, true),
+            cellOpts([texto], BLANCO, IND_W),
+            ...SCORE_COLS.map(c => scoreCell(scores[c], COL_W))
+          ]
+        });
+      });
+
+      // Promedio row
+      const pEl = document.getElementById(`prom_d${dimId.slice(-1)}`);
+      const promVal = pEl ? pEl.textContent : '—';
+      const promRow = new TableRow({
+        children: [
+          new TableCell({
+            borders: borde(AZUL),
+            width: { size: N_W + IND_W + COL_W * 5, type: WidthType.DXA },
+            columnSpan: 7,
+            shading: { fill: AZUL_CL, type: ShadingType.CLEAR },
+            margins: { top: 80, bottom: 80, left: 100, right: 100 },
+            children: [new Paragraph({
+              alignment: AlignmentType.RIGHT,
+              children: [new TextRun({ text: 'PROMEDIO DIMENSIÓN:', bold: true, size: 17, font: "Arial", color: AZUL })]
+            })]
+          }),
+          new TableCell({
+            borders: borde(AZUL),
+            width: { size: COL_W, type: WidthType.DXA },
+            shading: { fill: AZUL, type: ShadingType.CLEAR },
+            margins: { top: 80, bottom: 80, left: 60, right: 60 },
+            children: [new Paragraph({
+              alignment: AlignmentType.CENTER,
+              children: [new TextRun({ text: promVal, bold: true, size: 18, font: "Arial", color: BLANCO })]
+            })]
+          })
+        ]
+      });
+
+      return new Table({
+        width: { size: TOTAL_W, type: WidthType.DXA },
+        columnWidths: colWidths,
+        rows: [hdrRow, ...dataRows, promRow]
+      });
+    }
+
+    // ── ID fields ──
+    const id = {
+      prof:      document.getElementById('prof_observado').value || '',
+      obs:       document.getElementById('observador').value || '',
+      curso:     document.getElementById('curso').value || '',
+      asig:      document.getElementById('asignatura').value || '',
+      fecha:     document.getElementById('fecha_horario').value || '',
+      total:     document.getElementById('total_estudiantes').value || '',
+      pie:       document.getElementById('estudiantes_pie').value || '',
+      codoce:    document.getElementById('codocencia').value || '',
+      fortalezas: document.getElementById('fortalezas').value || '',
+      mejoras:    document.getElementById('mejoras').value || '',
+    };
+
+    const idRow = (label, val, label2, val2) => new TableRow({
+      children: [
+        cellOpts([label], AZUL_SUV, 2200, false, true),
+        cellOpts([val],   BLANCO,   3920),
+        cellOpts([label2], AZUL_SUV, 2200, false, true),
+        cellOpts([val2],  BLANCO,   3920)
+      ]
+    });
+
+    const idTable = new Table({
+      width: { size: TOTAL_W, type: WidthType.DXA },
+      columnWidths: [2200, 3920, 2200, 3920],
+      rows: [
+        idRow('Nombre profesor(a) observado', id.prof, 'Nombre de observador', id.obs),
+        idRow('Curso', id.curso, 'Asignatura', id.asig),
+        idRow('Fecha / Horario', id.fecha, 'Estudiantes presentes', id.total),
+        idRow('Estudiantes PIE presentes', id.pie, 'Co-docencia', id.codoce),
+      ]
+    });
+
+    // ── Resumen ──
+    const p1 = document.getElementById('res_d1').textContent;
+    const p2 = document.getElementById('res_d2').textContent;
+    const p3 = document.getElementById('res_d3').textContent;
+    const pg = document.getElementById('prom_general').textContent;
+
+    const resTable = new Table({
+      width: { size: TOTAL_W, type: WidthType.DXA },
+      columnWidths: [800, 9640, 1800],
+      rows: [
+        new TableRow({
+          tableHeader: true,
+          children: [hdrCell('N°', 800), hdrCell('Dimensión', 9640), hdrCell('Promedio', 1800)]
+        }),
+        new TableRow({ children: [cellOpts(['1'], AZUL_SUV, 800, true), cellOpts(['Proceso Enseñanza Aprendizaje y Clima de Aula'], BLANCO, 9640), cellOpts([p1], AZUL_SUV, 1800, true, true)] }),
+        new TableRow({ children: [cellOpts(['2'], AZUL_SUV, 800, true), cellOpts(['Sobre la Evaluación'], BLANCO, 9640), cellOpts([p2], AZUL_SUV, 1800, true, true)] }),
+        new TableRow({ children: [cellOpts(['3'], AZUL_SUV, 800, true), cellOpts(['Aula de Recursos'], BLANCO, 9640), cellOpts([p3], AZUL_SUV, 1800, true, true)] }),
+        new TableRow({
+          children: [
+            new TableCell({
+              borders: borde(AZUL), columnSpan: 2,
+              width: { size: 10440, type: WidthType.DXA },
+              shading: { fill: AZUL, type: ShadingType.CLEAR },
+              margins: { top: 100, bottom: 100, left: 100, right: 100 },
+              children: [new Paragraph({ alignment: AlignmentType.RIGHT, children: [new TextRun({ text: 'PROMEDIO GENERAL', bold: true, size: 19, font: "Arial", color: BLANCO })] })]
+            }),
+            cellOpts([pg], AZUL_MED, 1800, true, true)
+          ]
+        })
+      ]
+    });
+
+    // ── Definición cualitativa ──
+    const defTable = new Table({
+      width: { size: TOTAL_W, type: WidthType.DXA },
+      columnWidths: [TOTAL_W / 2, TOTAL_W / 2],
+      rows: [
+        new TableRow({ tableHeader: true, children: [new TableCell({ columnSpan: 2, borders: borde(AZUL), width: { size: TOTAL_W, type: WidthType.DXA }, shading: { fill: AZUL, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 100, right: 100 }, children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: 'DEFINICIÓN CUALITATIVA', bold: true, size: 18, font: "Arial", color: BLANCO })] })] })] }),
+        new TableRow({ children: [
+          cellOpts(['S — Sobresaliente: Cumplimiento claro y consistente, sobresale con respecto a lo que se espera en el indicador evaluado.'], AZUL_SUV, TOTAL_W/2),
+          cellOpts(['L — Logrado: Cumplimiento adecuado en el indicador evaluado.'], BLANCO, TOTAL_W/2)
+        ]}),
+        new TableRow({ children: [
+          cellOpts(['ED — En Desarrollo: Cumple con lo esperado en el indicador evaluado, pero con cierta irregularidad (ocasionalmente).'], AZUL_SUV, TOTAL_W/2),
+          cellOpts(['NL — No Logrado: El cumplimiento presenta claras debilidades en el indicador evaluado.'], BLANCO, TOTAL_W/2)
+        ]})
+      ]
+    });
+
+    const gap = () => new Paragraph({ spacing: { before: 0, after: 160 }, children: [] });
+
+    const doc = new Document({
+      styles: { default: { document: { run: { font: "Arial", size: 18 } } } },
+      sections: [{
+        properties: {
+          page: {
+            size: { width: 15840, height: 12240, orientation: PageOrientation.LANDSCAPE },
+            margin: { top: 720, right: 720, bottom: 720, left: 720 }
+          }
+        },
+        children: [
+          // Título principal
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { before: 0, after: 200 },
+            shading: { fill: AZUL, type: ShadingType.CLEAR },
+            children: [new TextRun({ text: 'PAUTA DE ACOMPAÑAMIENTO AL AULA PIE 2025', bold: true, size: 26, font: "Arial", color: BLANCO })]
+          }),
+
+          sectionTitle('IDENTIFICACIÓN'),
+          idTable,
+          gap(),
+
+          sectionTitle('1. SOBRE EL PROCESO ENSEÑANZA APRENDIZAJE Y CLIMA DE AULA'),
+          buildDimTable(D1, 'd1'),
+          gap(),
+
+          sectionTitle('2. SOBRE LA EVALUACIÓN'),
+          buildDimTable(D2, 'd2'),
+          gap(),
+
+          sectionTitle('3. AULA DE RECURSOS'),
+          buildDimTable(D3, 'd3'),
+          gap(),
+
+          sectionTitle('RESUMEN GENERAL'),
+          resTable,
+          gap(),
+
+          sectionTitle('OBSERVACIONES GENERALES'),
+          new Table({
+            width: { size: TOTAL_W, type: WidthType.DXA },
+            columnWidths: [TOTAL_W/2, TOTAL_W/2],
+            rows: [
+              new TableRow({ children: [
+                hdrCell('FORTALEZAS', TOTAL_W/2),
+                hdrCell('MÁRGENES DE MEJORA', TOTAL_W/2)
+              ]}),
+              new TableRow({ children: [
+                cellOpts([id.fortalezas || ' '], BLANCO, TOTAL_W/2),
+                cellOpts([id.mejoras || ' '], BLANCO, TOTAL_W/2)
+              ]})
+            ]
+          }),
+          gap(),
+
+          defTable,
+        ]
+      }]
+    });
+
+    const buffer = await Packer.toBlob(doc);
+    const url = URL.createObjectURL(buffer);
+    const a = document.createElement('a');
+    a.href = url;
+    const prof = id.prof ? `_${id.prof.replace(/\s+/g,'_')}` : '';
+    a.download = `Pauta_PIE_2025${prof}.docx`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('✅ Word descargado correctamente');
+
+  } catch(e) {
+    console.error(e);
+    showToast('❌ Error al generar el documento');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📄 Exportar Word';
+  }
+}
+renderDimension(D1, 'body_d1', 'd1');
+renderDimension(D2, 'body_d2', 'd2');
+renderDimension(D3, 'body_d3', 'd3');
+cargarFormulario();
+recalcAll();
+</script>
+
+<!-- PRINT STYLES -->
+<style>
+@media print {
+  header { background: #1a3a5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card { box-shadow: none; border: 1px solid #ccc; }
+  .actions { display: none; }
+  #toast { display: none; }
+  .btn { display: none; }
+  body { background: white; }
+}
+</style>
+
+</body>
+</html>
